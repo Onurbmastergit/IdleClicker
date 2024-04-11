@@ -8,7 +8,7 @@ public class BossStatus : MonoBehaviour
     
     public float vidaAtual;  
 
-    float valorMoedas;
+    int valorMoedas;
 
     UpgradesSystem coins;
     Animator animator;
@@ -19,7 +19,7 @@ public class BossStatus : MonoBehaviour
         coins = GameObject.FindWithTag("Coins").GetComponent<UpgradesSystem>();
         animator = GetComponent<Animator>();
         vidaAtual = GameManager.vidaTotal;
-        valorMoedas = Random.Range(GameManager.coinsRewardsMin,GameManager.coinsRewardsMax);
+        valorMoedas = GameManager.coins;
     }
     public void ReceberDano(float dano) 
     {

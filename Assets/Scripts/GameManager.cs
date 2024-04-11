@@ -9,14 +9,16 @@ public class GameManager : MonoBehaviour
 
     SpanwBoss spanwBoss;
 
-    public static float valorMinimo = 20;
-    public static float valorMaximo = 45;
+    public static float vidaBase = 10;
+    public static int coins = 50;
     public static float vidaTotal;
     public static int coinsRewardsMin = 5;
     public static int coinsRewardsMax = 20;
     private void Start()
     {
-        vidaTotal = Random.Range(valorMinimo, valorMaximo);
+        vidaBase = vidaBase * (UpgradesSystem.moedas/100 * 1);
+        coins = coins * (UpgradesSystem.moedas /100 * 1);
+        vidaTotal = vidaBase;
         spanwBoss = GameObject.FindWithTag("Respawn").GetComponent<SpanwBoss>();
         SpawnarBoss();
     }
@@ -24,12 +26,9 @@ public class GameManager : MonoBehaviour
     {
         if (bossDie) 
         {
-            levelDificuldade++;
-            coinsRewardsMin *= levelDificuldade;
-            coinsRewardsMax *= levelDificuldade;
-            valorMaximo *= levelDificuldade/4f;
-            valorMinimo *= levelDificuldade/4f;
-            vidaTotal = Random.Range(valorMinimo, valorMaximo);
+            vidaBase = vidaBase * (UpgradesSystem.moedas/100 * 1);
+            coins = coins * (UpgradesSystem.moedas/100 * 1);
+            vidaTotal = vidaBase;
             SpawnarBoss();
         }
     }

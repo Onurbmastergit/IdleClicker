@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class UpgradesSystem : MonoBehaviour
 {
-    public static float moedas = 0;
+    public static int moedas = 100;
     public static int levelWeapons = 1;
     public static float damage = 10;
     public static int buy = 10;
@@ -31,7 +31,7 @@ public class UpgradesSystem : MonoBehaviour
         coins.text = moedas.ToString();
     }
 
-    public void GetCoin(float valor) 
+    public void GetCoin(int valor) 
     {
         coins2.text = "+" +valor.ToString();
         animator.SetBool("Coins", true);
