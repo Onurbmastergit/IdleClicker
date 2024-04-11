@@ -1,0 +1,5 @@
+D:/Users/bruno.asataide/Documents/IdleClicker/.utmp/Debug/1s5441d2/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Users/bruno.asataide/Documents/IdleClicker/.utmp/Debug/1s5441d2/armeabi-v7a/CMakeFiles/rebuild_cache.dir
+D:/Users/bruno.asataide/Documents/IdleClicker/.utmp/Debug/1s5441d2/armeabi-v7a/FramePacing/CMakeFiles/swappywrapper.dir
+D:/Users/bruno.asataide/Documents/IdleClicker/.utmp/Debug/1s5441d2/armeabi-v7a/FramePacing/CMakeFiles/edit_cache.dir
+D:/Users/bruno.asataide/Documents/IdleClicker/.utmp/Debug/1s5441d2/armeabi-v7a/FramePacing/CMakeFiles/rebuild_cache.dir
