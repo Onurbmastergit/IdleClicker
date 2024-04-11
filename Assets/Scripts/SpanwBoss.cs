@@ -5,9 +5,10 @@ using UnityEngine;
 public class SpanwBoss : MonoBehaviour
 {
     public Transform spawnBoss;
-    public Transform prefabBoss;
-    private void Start()
+    public GameObject[] prefabBoss;
+    public void SpawnarBoss() 
     {
-        Instantiate(prefabBoss, spawnBoss);
+        GameManager.bossDie = false;
+        Instantiate(prefabBoss[0], spawnBoss);
     }
 }

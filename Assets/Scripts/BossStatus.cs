@@ -6,28 +6,22 @@ using UnityEngine;
 public class BossStatus : MonoBehaviour
 {
     
-    public float vidaAtual;
-    
-    public float vidaTotal;
+    public float vidaAtual;  
 
-    int valorMoedas;
+    float valorMoedas;
 
     UpgradesSystem coins;
     Animator animator;
+    
 
     private void Start()
     {
         coins = GameObject.FindWithTag("Coins").GetComponent<UpgradesSystem>();
         animator = GetComponent<Animator>();
-        vidaTotal = Random.Range(100,200);
-        valorMoedas = Random.Range(50,100);
-        vidaAtual = vidaTotal;
+        vidaAtual = GameManager.vidaTotal;
+        valorMoedas = Random.Range(GameManager.coinsRewardsMin,GameManager.coinsRewardsMax);
     }
-    private void Update()
-    {
-        
-    }
-    public void ReceberDano(int dano) 
+    public void ReceberDano(float dano) 
     {
         vidaAtual -= dano;
         animator.SetBool("Damage",true);
@@ -37,7 +31,8 @@ public class BossStatus : MonoBehaviour
     void Death()
     {
         if (vidaAtual <= 0) 
-        {  
+        {
+          GameManager.bossDie = true;
           coins.GetCoin(valorMoedas);  
           Destroy(gameObject);
         }

@@ -18,7 +18,7 @@ public class HudBarStatus : MonoBehaviour
 
     private void Update()
     {
-        float fillAmount = status.vidaAtual / status.vidaTotal;
+        float fillAmount = status.vidaAtual / GameManager.vidaTotal;
         LifeBar.fillAmount = fillAmount;
         contador.text = status.vidaAtual.ToString();
     }

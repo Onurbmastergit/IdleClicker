@@ -5,22 +5,35 @@ using UnityEngine;
 public class TouchSystem : MonoBehaviour
 {
     public BossStatus status;
-    int toques = 0;
+    public RectTransform panelRectTransform;
+
+
 
     void Update()
     {
-        if (status== null) 
+        if (status == null )
         {
             status = GameObject.FindWithTag("Boss").GetComponent<BossStatus>();
         }
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            OlhaALapada();
+          
+            Vector2 touchPosition = Input.GetTouch(0).position;
+
+           
+            Vector2 localTouchPosition;
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(panelRectTransform, touchPosition, null, out localTouchPosition);
+
+            // Verificar se o toque ocorreu dentro da área do painel
+            if (panelRectTransform.rect.Contains(localTouchPosition))
+            {
+                OlhaALapada();
+            }
         }
     }
 
     public void OlhaALapada() 
     {
-        status.ReceberDano(10);
+        status.ReceberDano(UpgradesSystem.damage);
     }
 }
